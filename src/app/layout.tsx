@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://plavanga-labs.vercel.app",
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.plavangalabs.com",
   ),
   title: {
     default: "Plavanga Labs | Software & AI Development",
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   },
   description:
     "Custom software development, AI integration, conversational AI, and workflow automation for ambitious product teams.",
+  alternates: { canonical: "/" },
   keywords: [
     "software development",
     "AI integration",
@@ -47,7 +48,14 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js-ready')",
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

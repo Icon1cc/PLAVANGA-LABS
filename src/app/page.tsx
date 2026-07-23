@@ -1,6 +1,7 @@
 import { AboutSection } from "@/components/about-section";
 import { ContactSection } from "@/components/contact-section";
 import { Hero } from "@/components/hero";
+import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WorksSection } from "@/components/works-section";
@@ -34,6 +35,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <SiteFooter />
+      <RevealObserver />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

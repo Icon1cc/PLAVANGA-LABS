@@ -8,7 +8,7 @@ export function WorksSection() {
   return (
     <section className="section works-section" id="works">
       <div className="container">
-        <div className="works-heading-row">
+        <div className="works-heading-row reveal">
           <SectionHeading
             eyebrow="Works"
             title="Built around outcomes, not a fixed technology list."
@@ -22,7 +22,7 @@ export function WorksSection() {
 
         <div className="work-list">
           {work.map((item) => (
-            <article className={`work-item work-${item.color}`} key={item.index}>
+            <article className={`work-item work-${item.color} reveal`} key={item.index}>
               <div className="work-visual" aria-hidden="true">
                 <span className="work-index">{item.index}</span>
                 <div className="work-window">

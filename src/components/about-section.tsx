@@ -8,7 +8,7 @@ export function AboutSection() {
   return (
     <section className="section about-section" id="about">
       <div className="container">
-        <div className="about-intro">
+        <div className="about-intro reveal">
           <SectionHeading
             eyebrow="About us"
             title="One technical partner from first decision to production."
@@ -36,7 +36,7 @@ export function AboutSection() {
             const Icon = service.icon;
             return (
               <article
-                className={`service-item accent-${service.accent}`}
+                className={`service-item accent-${service.accent} reveal`}
                 key={service.title}
               >
                 <div className="service-number">0{index + 1}</div>

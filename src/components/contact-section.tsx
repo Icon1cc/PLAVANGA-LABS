@@ -7,7 +7,7 @@ export function ContactSection() {
   return (
     <section className="section contact-section" id="contact">
       <div className="container contact-layout">
-        <div className="contact-intro">
+        <div className="contact-intro reveal">
           <SectionHeading
             eyebrow="Contact us"
             title="Bring us the problem. We will help shape the path forward."
@@ -20,8 +20,8 @@ export function ContactSection() {
           <div className="contact-details">
             <div>
               <AtSign aria-hidden="true" />
-              <span>Project contact</span>
-              <strong>PLAVANGA-LABS</strong>
+              <span>How to reach us</span>
+              <strong>Send the brief below</strong>
             </div>
             <div>
               <Clock3 aria-hidden="true" />

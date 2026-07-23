@@ -70,7 +70,7 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" ref={formRef} onSubmit={handleSubmit}>
+    <form className="contact-form reveal" ref={formRef} onSubmit={handleSubmit}>
       <div className="form-row">
         <label>
           <span>Name *</span>

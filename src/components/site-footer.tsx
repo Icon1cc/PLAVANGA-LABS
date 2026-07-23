@@ -17,7 +17,7 @@ export function SiteFooter() {
             of their business.
           </p>
           <a className="footer-contact-link" href="#contact">
-            Project contact: PLAVANGA-LABS
+            Start a project
           </a>
         </div>
 
