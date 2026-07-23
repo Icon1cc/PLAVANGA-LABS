@@ -68,9 +68,18 @@ export async function sendContactMessage(
       `,
     }),
     signal: AbortSignal.timeout(10_000),
-  }).catch(() => null);
+  }).catch((error) => {
+    console.error("Resend request did not complete:", error);
+    return null;
+  });
 
-  if (!response?.ok) {
+  if (!response) {
+    return { ok: false, reason: "provider" };
+  }
+
+  if (!response.ok) {
+    const detail = await response.text().catch(() => "");
+    console.error(`Resend rejected the send (${response.status}): ${detail}`);
     return { ok: false, reason: "provider" };
   }
 
