@@ -210,8 +210,8 @@ svg {
 .hero {
   align-items: center;
   display: flex;
-  height: min(900px, calc(100svh - 34px));
-  min-height: 670px;
+  height: min(760px, calc(100svh - 40px));
+  min-height: 560px;
   overflow: hidden;
   padding-top: var(--header-height);
   position: relative;
@@ -457,7 +457,7 @@ svg {
 }
 
 .section {
-  padding: clamp(96px, 11vw, 160px) 0;
+  padding: clamp(64px, 7vw, 104px) 0;
   position: relative;
 }
 

@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 import { ServiceMarquee } from "./service-marquee";
@@ -42,17 +42,6 @@ export function Hero() {
             </a>
           </div>
 
-          <ul className="hero-proof" aria-label="Delivery capabilities">
-            <li>
-              <Check aria-hidden="true" /> End-to-end delivery
-            </li>
-            <li>
-              <Check aria-hidden="true" /> Senior technical ownership
-            </li>
-            <li>
-              <Check aria-hidden="true" /> Vercel-ready web platforms
-            </li>
-          </ul>
         </div>
 
         <a className="scroll-cue" href="#about" aria-label="Continue to about us">
