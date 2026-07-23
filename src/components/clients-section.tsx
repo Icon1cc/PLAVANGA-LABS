@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import Image from "next/image";
 
 import { clients } from "@/content/site";
 
@@ -23,9 +24,21 @@ export function ClientsSection() {
             key={client.name}
           >
             <div className="client-head">
-              <span className="client-avatar" aria-hidden="true">
-                {client.initial}
-              </span>
+              {client.logo ? (
+                <span className="client-logo">
+                  <Image
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    width={640}
+                    height={400}
+                    sizes="168px"
+                  />
+                </span>
+              ) : (
+                <span className="client-avatar" aria-hidden="true">
+                  {client.initial}
+                </span>
+              )}
               <div className="client-meta">
                 <h3>{client.name}</h3>
                 <p>{client.project}</p>

@@ -18,10 +18,7 @@ export function Hero() {
         <div className="hero-overlay" aria-hidden="true" />
 
         <div className="container hero-content">
-          <p className="hero-kicker">
-            <span>Available for select projects</span>
-            Software engineering + applied AI
-          </p>
+          <p className="hero-kicker">Software engineering + applied AI</p>
           <h1>
             Software &amp; AI systems
             <span>built for what is next.</span>

@@ -37,6 +37,45 @@ test("homepage is responsive and exposes every primary section", async ({
   });
 });
 
+test("hero reserves room for the service marquee in the first viewport", async ({
+  page,
+}) => {
+  await page.goto("/");
+
+  const geometry = await page.evaluate(() => {
+    const marquee = document.querySelector(".marquee");
+    if (!marquee) throw new Error("marquee not found");
+    const box = marquee.getBoundingClientRect();
+    return { top: box.top, bottom: box.bottom, viewport: window.innerHeight };
+  });
+
+  // The hero sizes itself against --marquee-height, so the banner has to land
+  // fully above the fold on every project viewport, not just peek.
+  expect(geometry.top).toBeGreaterThan(0);
+  expect(geometry.bottom).toBeLessThanOrEqual(geometry.viewport + 1);
+});
+
+test("every client card renders its logo or initial mark", async ({ page }) => {
+  await page.goto("/");
+
+  const cards = page.locator(".client-card");
+  await expect(cards).toHaveCount(3);
+
+  for (let i = 0; i < 3; i += 1) {
+    const card = cards.nth(i);
+    const marks = card.locator(".client-logo img, .client-avatar");
+    await expect(marks).toHaveCount(1);
+  }
+
+  await expect(page.getByAltText("Maruti Cranes logo")).toHaveAttribute(
+    "src",
+    /maruti-cranes/,
+  );
+  await expect(
+    page.getByAltText("Ashtavinayak Constructions and Earthmovers logo"),
+  ).toHaveAttribute("src", /ashtavinayak-constructions/);
+});
+
 test("contact form reports a successful submission", async ({ page }) => {
   await page.route("/api/contact", async (route) => {
     await route.fulfill({

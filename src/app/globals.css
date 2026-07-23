@@ -15,6 +15,9 @@
   --page-width: 1240px;
   --page-gutter: clamp(20px, 4vw, 56px);
   --header-height: 74px;
+  /* Height of the service marquee. The hero reserves this much room so the
+     banner is always visible below the fold-line on every screen size. */
+  --marquee-height: 58px;
 }
 
 * {
@@ -210,7 +213,7 @@ svg {
 .hero {
   align-items: center;
   display: flex;
-  height: min(760px, calc(100svh - 40px));
+  height: min(760px, calc(100svh - var(--marquee-height)));
   min-height: 560px;
   overflow: hidden;
   padding-top: var(--header-height);
@@ -248,33 +251,15 @@ svg {
 }
 
 .hero-kicker {
-  align-items: center;
-  color: var(--ink-muted);
-  display: flex;
+  color: #eeecf5;
   font-size: 12px;
-  gap: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   margin: 0 0 24px;
+  /* The kicker sits directly on the hero photo, which is bright in places.
+     A tight dark halo keeps it legible without adding a plate behind it. */
+  text-shadow: 0 1px 3px rgba(7, 7, 11, 0.92), 0 2px 14px rgba(7, 7, 11, 0.8);
   text-transform: uppercase;
-}
-
-.hero-kicker span {
-  align-items: center;
-  background: rgba(10, 10, 14, 0.58);
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  color: var(--ink);
-  display: inline-flex;
-  gap: 8px;
-  padding: 7px 11px;
-}
-
-.hero-kicker span::before {
-  background: var(--lime);
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(216, 242, 139, 0.12);
-  content: "";
-  height: 6px;
-  width: 6px;
 }
 
 .hero h1 {
@@ -422,7 +407,7 @@ svg {
   align-items: center;
   animation: marquee-forward 26s linear infinite;
   display: flex;
-  min-height: 58px;
+  min-height: var(--marquee-height);
   width: max-content;
 }
 
@@ -902,23 +887,46 @@ svg {
 }
 
 .client-head {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
-  gap: 14px;
+  flex-direction: column;
+  gap: 16px;
 }
 
+/* Client logos are supplied as artwork on a white canvas, so they sit on a
+   light plate rather than directly on the dark card. */
+.client-logo {
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  height: 96px;
+  justify-content: center;
+  overflow: hidden;
+  width: 168px;
+}
+
+.client-logo img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+/* Same height as .client-logo so cards with and without a logo keep the
+   same vertical rhythm. */
 .client-avatar {
   align-items: center;
   background: linear-gradient(135deg, var(--cyan), var(--violet) 55%, var(--coral));
-  border-radius: 12px;
+  border-radius: 10px;
   color: #08080b;
   display: flex;
   flex-shrink: 0;
-  font-size: 22px;
+  font-size: 34px;
   font-weight: 800;
-  height: 52px;
+  height: 96px;
   justify-content: center;
-  width: 52px;
+  width: 96px;
 }
 
 .client-card.accent-cyan .client-avatar {
@@ -946,6 +954,8 @@ svg {
   border-top: 1px solid var(--line);
   display: grid;
   gap: 12px;
+  /* Pin the quote to the bottom so it lines up across cards of unequal height. */
+  margin-top: auto;
   padding-top: 20px;
 }
 
@@ -1111,10 +1121,10 @@ svg {
 
 .contact-form .consent-field input {
   accent-color: var(--cyan);
-  flex: 0 0 16px;
-  height: 16px;
-  margin-top: 1px;
-  width: 16px;
+  flex: 0 0 18px;
+  height: 18px;
+  margin-top: 0;
+  width: 18px;
 }
 
 .honeypot {
@@ -1318,10 +1328,10 @@ svg {
     border: 1px solid var(--line-strong);
     border-radius: 50%;
     display: flex;
-    height: 40px;
+    height: 44px;
     justify-content: center;
     padding: 0;
-    width: 40px;
+    width: 44px;
   }
 
   .menu-button svg {
@@ -1428,8 +1438,8 @@ svg {
   .hero {
     align-items: flex-end;
     height: auto;
-    min-height: calc(100svh - 32px);
-    padding-bottom: 50px;
+    min-height: calc(100svh - var(--marquee-height));
+    padding-bottom: 34px;
   }
 
   .hero-image {
@@ -1442,14 +1452,11 @@ svg {
   }
 
   .hero-content {
-    padding-bottom: 8px;
-    padding-top: 150px;
+    padding-bottom: 0;
+    padding-top: 24px;
   }
 
   .hero-kicker {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
     margin-bottom: 19px;
   }
 
@@ -1480,11 +1487,11 @@ svg {
   }
 
   .section {
-    padding: 88px 0;
+    padding: 64px 0;
   }
 
   .section-heading h2 {
-    font-size: clamp(37px, 10.5vw, 52px);
+    font-size: clamp(31px, 8.8vw, 44px);
   }
 
   .about-intro,
@@ -1500,7 +1507,7 @@ svg {
 
   .services-grid {
     grid-template-columns: 1fr;
-    margin-top: 64px;
+    margin-top: 44px;
   }
 
   .service-item {
@@ -1603,6 +1610,16 @@ svg {
   .footer-brand,
   .footer-services {
     grid-column: auto;
+  }
+
+  /* Trade the visual gap for padding so each footer link is a comfortable
+     tap target without changing the spacing between them. */
+  .footer-column {
+    gap: 2px;
+  }
+
+  .footer-column a {
+    padding: 9px 0;
   }
 
   .footer-bottom {

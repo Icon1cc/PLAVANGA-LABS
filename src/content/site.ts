@@ -123,8 +123,12 @@ export const deliveryPrinciples = [
 
 export type Client = {
   name: string;
+  // Fallback mark shown when the client has no logo file yet.
   initial: string;
   project: string;
+  // Optional logo under /public/images/clients. Source art is normalised to a
+  // 640x400 white canvas so every card can use the same plate size.
+  logo?: string;
   // Leave the quote empty until the client approves a review, then paste it
   // here. An empty quote shows a "Review coming soon" placeholder on the card.
   quote: string;
@@ -138,6 +142,24 @@ export const clients: Client[] = [
     project: "Managed marketplace for trade and renovation work",
     quote: "",
     accent: "violet",
+  },
+  {
+    name: "Maruti Cranes",
+    initial: "M",
+    // TODO: replace with the actual engagement once it is agreed with the client.
+    project: "Crane hire and heavy lifting services",
+    logo: "/images/clients/maruti-cranes.webp",
+    quote: "",
+    accent: "cyan",
+  },
+  {
+    name: "Ashtavinayak Constructions and Earthmovers",
+    initial: "A",
+    // TODO: replace with the actual engagement once it is agreed with the client.
+    project: "Construction and earthmoving contractor",
+    logo: "/images/clients/ashtavinayak-constructions.webp",
+    quote: "",
+    accent: "coral",
   },
 ];
 
