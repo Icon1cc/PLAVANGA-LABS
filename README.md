@@ -36,9 +36,17 @@ CONTACT_TO_EMAIL=hello@your-domain.com
 CONTACT_FROM_EMAIL=Plavanga Labs <website@your-domain.com>
 ```
 
-`CONTACT_FROM_EMAIL` must use a sender domain verified in Resend. The app returns
-a clear unavailable response when mail configuration is missing instead of
+`CONTACT_FROM_EMAIL` must use a sender domain verified at
+[resend.com/domains](https://resend.com/domains). Resend will not send from a
+free mailbox such as `@gmail.com`, and it rejects the send with a 403. Until a
+domain is verified, the only sender Resend accepts is `onboarding@resend.dev`,
+and that shared sender can deliver only to the email on your Resend account.
+Verify a domain to send from your own brand to any recipient. The app returns a
+clear unavailable response when mail configuration is missing instead of
 silently dropping a submission.
+
+Set the same variables in the Vercel project. The deployed site reads
+environment variables from Vercel, not from a local `.env` file.
 
 For production abuse protection across multiple Vercel instances, add a
 distributed rate limit through Vercel Firewall or a shared store. The included

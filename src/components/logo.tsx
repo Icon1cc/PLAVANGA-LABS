@@ -8,7 +8,7 @@ export function Logo({ compact = false }: LogoProps) {
   return (
     <Link className="logo" href="#home" aria-label="Plavanga Labs home">
       <span className="logo-mark" aria-hidden="true">
-        <span>A</span>
+        <span>P</span>
       </span>
       {!compact && (
         <span className="logo-type">
