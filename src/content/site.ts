@@ -12,6 +12,7 @@ export const navigation = [
   { label: "Home", href: "#home" },
   { label: "About us", href: "#about" },
   { label: "Works", href: "#works" },
+  { label: "Clients", href: "#clients" },
   { label: "Contact us", href: "#contact" },
 ] as const;
 
@@ -119,6 +120,26 @@ export const deliveryPrinciples = [
   "Security considered from day one",
   "No black-box handoff",
 ] as const;
+
+export type Client = {
+  name: string;
+  initial: string;
+  project: string;
+  // Leave the quote empty until the client approves a review, then paste it
+  // here. An empty quote shows a "Review coming soon" placeholder on the card.
+  quote: string;
+  accent: "violet" | "cyan" | "coral";
+};
+
+export const clients: Client[] = [
+  {
+    name: "Andee",
+    initial: "A",
+    project: "Managed marketplace for trade and renovation work",
+    quote: "",
+    accent: "violet",
+  },
+];
 
 export const serviceOptions = [
   "Custom software",

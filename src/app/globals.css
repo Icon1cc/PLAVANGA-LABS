@@ -853,6 +853,120 @@ svg {
   padding: 7px 10px;
 }
 
+.clients-section {
+  background:
+    linear-gradient(135deg, rgba(90, 224, 231, 0.08), transparent 42%),
+    linear-gradient(180deg, #0a0a10, #0d0c16);
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.clients-track {
+  display: flex;
+  gap: 22px;
+  margin-top: clamp(38px, 6vw, 60px);
+  overflow-x: auto;
+  padding-bottom: 10px;
+  padding-inline: var(--page-gutter);
+  scroll-snap-type: x mandatory;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+  scrollbar-width: thin;
+}
+
+.clients-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.clients-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.client-card {
+  background: rgba(15, 15, 22, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: flex;
+  flex: 0 0 clamp(280px, 80vw, 384px);
+  flex-direction: column;
+  gap: 22px;
+  padding: 26px;
+  scroll-snap-align: start;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.client-card:hover {
+  border-color: var(--line-strong);
+  box-shadow: 0 26px 60px rgba(3, 4, 12, 0.42);
+  transform: translateY(-4px);
+}
+
+.client-head {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+}
+
+.client-avatar {
+  align-items: center;
+  background: linear-gradient(135deg, var(--cyan), var(--violet) 55%, var(--coral));
+  border-radius: 12px;
+  color: #08080b;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 22px;
+  font-weight: 800;
+  height: 52px;
+  justify-content: center;
+  width: 52px;
+}
+
+.client-card.accent-cyan .client-avatar {
+  background: linear-gradient(135deg, var(--cyan), #2f9fb2);
+}
+
+.client-card.accent-coral .client-avatar {
+  background: linear-gradient(135deg, var(--coral), #b7506a);
+}
+
+.client-meta h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.client-meta p {
+  color: var(--ink-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 4px 0 0;
+}
+
+.client-quote {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.client-quote svg {
+  color: var(--violet-bright);
+  height: 22px;
+  width: 22px;
+}
+
+.client-quote p {
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.client-quote-pending {
+  color: var(--ink-subtle) !important;
+  font-style: italic;
+}
+
 .contact-section {
   background:
     linear-gradient(135deg, rgba(139, 86, 246, 0.8) 0%, rgba(41, 48, 107, 0.88) 42%, rgba(9, 99, 106, 0.82) 100%),

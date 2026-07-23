@@ -1,4 +1,5 @@
 import { AboutSection } from "@/components/about-section";
+import { ClientsSection } from "@/components/clients-section";
 import { ContactSection } from "@/components/contact-section";
 import { Hero } from "@/components/hero";
 import { RevealObserver } from "@/components/reveal-observer";
@@ -32,6 +33,7 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <WorksSection />
+        <ClientsSection />
         <ContactSection />
       </main>
       <SiteFooter />
